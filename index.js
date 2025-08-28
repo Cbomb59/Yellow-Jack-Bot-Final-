@@ -234,5 +234,20 @@ client.on("messageCreate", async (message) => {
   }
 });
 
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Simple keep-alive route
+app.get('/', (req, res) => {
+  res.send('Bot is alive!');
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Keep-alive server running on port ${PORT}`);
+});
+
+
 //  🔟 Login
 client.login(process.env.TOKEN);
